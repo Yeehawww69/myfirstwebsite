@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Dummy credentials for validation
+        const validUsername = "user";
+        const validPassword = "password";
+
+        function handleLogin(e) {
+            e.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (username === validUsername && password === validPassword) {
+                alert("Login successful!");
+                // You can redirect to a new page after login
+                window.location.href = "home.html"; // Redirect to home page
+            } else {
+                errorMessage.textContent = "Invalid username or password!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Login/Signup Page</h1>
+        <a href="index.html">Home</a><br>
+        <a href="bee.html">The Bee Movie</a><br>
+        <a href="cars.html">Cars Movie</a><br>
+    </header>
+
+    <main>
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="errorMessage" style="color: red;"></p>
+        
+        <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+    </main>
+
+</body>
+</html>
